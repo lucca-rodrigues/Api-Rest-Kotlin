@@ -17,13 +17,16 @@ public class MathController {
 	 return sum;
  }
 
- private Double convertToDouble(String numberTwo){
-  // TODO
-  return 1D;
+ private Double convertToDouble(String stringNumber){
+  if(stringNumber == null) return  0D;
+  String number = stringNumber.replace(",",",");
+  if(isNumeric(number)) return Double.parseDouble(number);
+  return 0D;
  }
 
- private boolean isNumeric(String number){
-  // TODO
-  return false;
+ private boolean isNumeric(String stringNumber){
+  if(stringNumber == null) return false;
+  String number = stringNumber.replaceAll(",",",");
+  return number.matches("[-+]?[0-9]*|\\\\.?[0-9]+");
  }
 }
