@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MathController {
  
- @RequestMapping(value="/sum/numberOne/numberTwo", method= RequestMethod.GET)
+ @RequestMapping(value="/sum/{numberOne}/{numberTwo}", method= RequestMethod.GET)
  public Double sum(@PathVariable("numberOne") String numberOne, @PathVariable("numberTwo") String numberTwo) throws Exception {
-  if(isNumeric(numberOne) || isNumeric(numberTwo)){
+  if(!isNumeric(numberOne) || !isNumeric(numberTwo)){
    throw new Exception();
   }
   Double sum = convertToDouble(numberOne) + convertToDouble(numberTwo);
@@ -19,14 +19,14 @@ public class MathController {
 
  private Double convertToDouble(String stringNumber){
   if(stringNumber == null) return  0D;
-  String number = stringNumber.replace(",",",");
+  String number = stringNumber.replace(",",".");
   if(isNumeric(number)) return Double.parseDouble(number);
   return 0D;
  }
 
  private boolean isNumeric(String stringNumber){
   if(stringNumber == null) return false;
-  String number = stringNumber.replaceAll(",",",");
-  return number.matches("[-+]?[0-9]*|\\\\.?[0-9]+");
+  String number = stringNumber.replaceAll(",",".");
+  return number.matches("[-+]?[0-9]*\\.?[0-9]+");
  }
 }
