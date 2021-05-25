@@ -1,4 +1,4 @@
-package br.com.erudio;
+package br.com.erudio.controller;
 import br.com.erudio.exception.UnsuportedMathOperationException;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -54,7 +54,7 @@ import org.springframework.web.bind.annotation.RestController;
    }
 
    @RequestMapping(value="/squareRoot/{number}", method= RequestMethod.GET)
-   public Double squareRoot(@PathVariable("numberOne") String number) throws Exception {
+   public Double squareRoot(@PathVariable("number") String number) throws Exception {
     if(!isNumeric(number)){
      throw new UnsuportedMathOperationException("Please set a numeric value");
     }

@@ -1,5 +1,7 @@
-package br.com.erudio.exception;
+package br.com.erudio.exception.handler;
 
+import br.com.erudio.exception.ExceptionResponse;
+import br.com.erudio.exception.UnsuportedMathOperationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
