@@ -21,6 +21,10 @@ public class PersonServices {
         return person;
     }
 
+    public Person delete(Person person){
+        return person;
+    }
+
     public Person findById(String id) {
         Person person = new Person();
         person.setId(counter.incrementAndGet());

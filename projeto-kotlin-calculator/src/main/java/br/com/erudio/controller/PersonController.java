@@ -42,4 +42,10 @@ public class PersonController {
   return services.create(person);
  }
 
+ @RequestMapping(value="/{id}",
+         method= RequestMethod.DELETE,
+         produces= MediaType.APPLICATION_JSON_VALUE)
+ public void delete(@PathVariable("id") String id) {
+  services.findById(id);
+ }
 }
