@@ -53,9 +53,9 @@ import org.springframework.web.bind.annotation.RestController;
     return sum;
    }
 
-   @RequestMapping(value="/squareRoot/{numberOne}/{numberTwo}", method= RequestMethod.GET)
-   public Double squareRoot(@PathVariable("numberOne") String numberOne, @PathVariable("numberTwo") String numberTwo) throws Exception {
-    if(!isNumeric(numberOne) || !isNumeric(numberTwo)){
+   @RequestMapping(value="/squareRoot/{number}", method= RequestMethod.GET)
+   public Double squareRoot(@PathVariable("numberOne") String number) throws Exception {
+    if(!isNumeric(number)){
      throw new UnsuportedMathOperationException("Please set a numeric value");
     }
     Double sum = (Double) Math.sqrt(convertToDouble(number));
